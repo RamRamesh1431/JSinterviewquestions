@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><center>day3</center></h1>
+    <h2>1.What is the use of setTimeout</h2>
+    <pre>
+The setTimeout() method is used to call a function or evaluate an expression after a specified number of milliseconds. For example, let's log a message after 2 seconds using setTimeout method,
+
+      setTimeout(function () {
+        console.log("Good morning");
+      }, 2000);</pre
+    >
+    <h2>2.What is an event loop and call stack</h2>
+    <p>
+      The Event Loop is a queue of callback functions. When an async function
+      executes, the callback function is pushed into the queue. The JavaScript
+      engine doesn't start processing the event loop until the async function
+      has finished executing the code. Note: It allows Node.js to perform
+      non-blocking I/O operations even though JavaScript is single-threaded.
+    </p>
+    <p>
+      Call stack is a process in JavaScript which is used to keep track of
+      functions. When we call a function, JavaScript will add that function to
+      the call stack. If this function invokes another function, JavaScript will
+      add that function to the call stack as well, above the first function.
+    </p>
+    <h2>3.What are arrow functions?</h2>
+    <p>
+      An arrow function is short function expression, used to replace with
+      regular function in low complexity. Arrow functions were introduced to
+      JavaScript in ES6. The intention to create arrow function is to shorten
+      function code. Arrow function has its advantage and disadvanatges
+      comparing with normal function.
+    </p>
+    <pre>
+var addition = (a + b) => {
+      return a + b;
+  }</pre
+    >
+    <h2>4.What is a Temporal Dead Zone?</h2>
+    <pre>
+The Temporal Dead Zone is a behavior in JavaScript that occurs when declaring a variable with the let and const keywords, but not with var. In ECMAScript 6, accessing a let or const variable before its declaration (within its scope) causes a ReferenceError. The time span when that happens, between the creation of a variable’s binding and its declaration, is called the temporal dead zone.
+
+      Let's see this behavior with an example,
+      
+      function somemethod() {
+        console.log(counter1); // undefined
+        console.log(counter2); // ReferenceError
+        var counter1 = 1;
+        let counter2 = 2;
+      }</pre
+    >
+    <h2>5.What is hoisting?</h2>
+    <pre>
+Hoisting is a JavaScript mechanism where variables, function declarations and classes are moved to the top of their scope before code execution. Remember that JavaScript only hoists declarations, not initialisation. Let's take a simple example of variable hoisting,
+
+      console.log(message);    //output : undefined
+      var message = "The variable Has been hoisted";
+      The above code looks like as below to the interpreter,
+      
+      var message;
+      console.log(message);
+      message = "The variable Has been hoisted";
+      In the same fashion, function declarations are hoisted too
+      
+      message("Good morning");    //Good morning
+      
+      function message(name) {
+        console.log(name);
+      }
+      This hoisting makes functions to be safely used in code before they are declared.</pre
+    >
+    <h2>6.What is the DOM?</h2>
+    <p>
+      The Document Object Model or DOM is created by the browser when a webpage
+      is loaded. In graphical form, its like a tree of elements also called
+      nodes, which are used to represent every single element on the page.
+    </p>
+    <pre>
+Some of the actions that we can perform with this model are:
+
+      Change/Remove HTML elements in the DOM/on the page.
+      
+      Change and add CSS styles to elements
+      
+      Read and change attributes (href, src, alt), etc.
+      
+      Create new elements and insert them into the DOM/page.
+      
+      Attach event listeners to elements (click, keypress, submit)</pre
+    >
+    <h2>7.Difference between undefined vs not defined vs NaN</h2>
+    <pre>
+undefined::It is not an assignment value where a variable has been declared but has not yet been assigned a value.
+      Type of undefined is undefined.
+      The undefined value is a primitive value used when a variable has not been assigned a value.
+      Indicates absence of variable itself.
+      Converted to NaN while performing primitive operations.</pre
+    >
+    <pre>
+not defined::Where not defined is one of the reference errors that JavaScript will throw when someone accesses the variable which is not inside the memory heap</pre
+    >
+    <pre>
+NaN::The isNaN() function is used to determine whether a value is an illegal number (Not-a-Number) or not. i.e, This function returns true if the value equates to NaN. Otherwise it returns false.Not a Number, is a member of a numeric data type that can be interpreted as a value that is undefined
+
+      isNaN("Hello"); //true isNaN("100"); //false</pre
+    >
+  </body>
+</html>

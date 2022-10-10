@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><center>day2</center></h1>
+    <h2>1.What is creation phase and execution phase?</h2>
+    <b>creation phase</b>
+    <p>
+      In the creation phase, the Execution Context is first associated with an
+      Execution Context Object (ECO). The Execution Context Object stores a lot
+      of important data which the code in the Execution Context uses during its
+      run-time.
+    </p>
+    <p>
+      The creation phase occurs in 3 stages, during which the properties of the
+      Execution Context Object are defined and set. These stages are:
+    </p>
+    <pre>
+Creation of the Variable Object (VO)
+      Creation of the Scope Chain
+      Setting the value of the this keyword</pre
+    >
+    <b>Execution Phase</b>
+    <p>
+      Finally, right after the creation phase of an Execution Context comes the
+      execution phase. This is the stage where the actual code execution begins.
+      Up until this point, the VO contained variables with the values of
+      undefined. If the code is run at this point it is bound to return errors,
+      as we can't work with undefined values. At this stage, the JavaScript
+      engine reads the code in the current Execution Context once more, then
+      updates the VO with the actual values of these variables. Then the code is
+      parsed by a parser, gets transpired to executable byte code, and finally
+      gets executed.
+    </p>
+    <h2>2.What are objects in javascript?</h2>
+    <p>
+      JavaScript is designed on a simple object-based paradigm. An object is a
+      collection of properties, and a property is an association between a name
+      (or key) and a value. A property's value can be a function, in which case
+      the property is known as a method. In addition to objects that are
+      predefined in the browser, you can define your own objects. This chapter
+      describes how to use objects, properties, functions, and methods, and how
+      to create your own objects.
+    </p>
+    <h2>3.What are function constructors?</h2>
+    <p>In JavaScript, a constructor function is used to create objects.</p>
+    <pre>
+// constructor function
+      function Person () {
+          this.name = 'John',
+          this.age = 23
+      }
+      
+      // create an object
+      const person = new Person();</pre
+    >
+    <p>
+      In the above example, function Person() is an object constructor function.
+      To create an object from a constructor function, we use the new keyword.
+    </p>
+    <h2>4.Explain prototypes</h2>
+    <p>
+      Prototype:: An object's prototype ,object may also have a prototype
+      object, which it inherits methods and properties from, and so on. This is
+      often referred to as a prototype chain, and explains why different objects
+      have properties and methods defined on other objects available to them.
+      function Person(first, last, age, eyecolor) { this.firstName = first;
+      this.lastName = last; this.age = age; this.eyeColor = eyecolor; }
+    </p>
+    <pre>
+const myFather = new Person("John", "Doe", 50, "blue");
+      const myMother = new Person("Sally", "Rally", 48, "green");
+      console.log(myFather);
+      console.log(myMother);
+      //in case, if you want to add other properties in the object created using function constructor.
+      
+      myFather.age = 49;
+      console.log(myFather);
+      //in case when you want to add properties inside the function constructor.
+      
+      Person.prototype.City = "Vizag";
+      myFather.City = "Vijaywada";
+      console.log(myFather.City);</pre
+    >
+    <h2>5.What is prototype chain</h2>
+    <pre>
+ It is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language.
+
+      The prototype on object instance is available through Object.getPrototypeOf(object) or proto property whereas prototype on constructors function is available through Object.prototype.
+      
+      <"img src="./Images/prototype_chain.png"alt ="Prototype Chain png"></pre
+    >
+    <h2>6.Give an example of inheritance using function constructor</h2>
+    <pre>
+  function Employee(name, age, gender, id) {
+      this.name = name;
+      this.age = age;
+      this.gender = gender;
+      this.id = id;
+  };
+
+  function Developer(name, age, gender, id, 
+  specialization) {
+
+      // Calling Employee constructor function
+      Employee.call(this, name, age, gender, id);
+
+      // Adding a new parameter
+      this.specialization = specialization;
+  }
+  console.log(Employee.prototype);
+  console.log(Developer.prototype);</pre
+    >
+    <h2>7.What are callbacks?</h2>
+    <pre>
+A callback function is a function passed into another function as an argument. This function is invoked inside the outer function to complete an action. Let's take a simple example of how to use callback function
+
+      function callbackFunction(name) {
+        console.log("Hello " + name);
+      }
+      
+      function outerFunction(callback) {
+        let name = prompt("Please enter your name.");
+        callback(name);
+      }
+      
+      outerFunction(callbackFunction);</pre
+    >
+  </body>
+</html>

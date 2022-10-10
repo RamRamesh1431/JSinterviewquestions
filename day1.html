@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>*{
+      box-sizing: border-box;
+
+    }
+    body{
+      width: 100vw;
+    }
+    section{
+      width: 90%;
+    }
+    </style>
+  </head>
+  <body>
+    <section>
+    <h1><center>DAY1</center></h1>
+    <h2>1.Difference between “ == “ and “ === “ operators.</h2>
+    <p>
+JavaScript provides both strict(===, !==) and type-converting(==, !=) equality comparison. The strict operators take type of variable in consideration,
+ while non-strict operators make type correction/conversion based upon values of variables. The strict operators follow the below conditions for different types,
+<pre>
+      Two strings are strictly equal when they have the same sequence of characters, same length, 
+      and same characters in corresponding positions.
+      Two numbers are strictly equal when they are numerically equal. i.e, Having the same number value. 
+      There are two special cases in this, i. NaN is not equal to anything, including NaN. 
+      ii. Positive and negative zeros are equal to one another.
+      Two Boolean operands are strictly equal if both are true or both are false.
+      Two objects are strictly equal if they refer to the same Object.
+      Null and Undefined types are not equal with ===, but equal with ==. i.e, null===undefined --> false but null==undefined --> true</pre></p>
+    <h2>2.What is the spread operator?</h2>
+    <p>
+The JavaScript spread operator (...) allows us to quickly copy all or part of an existing array or object into another array or object.
+<pre>example : let arr=["i","am","rohit"] 
+let arr2 =["hey","hi"];
+let arr1 = [...arr,...arr2]
+console.log(arr1);</pre></p
+    >
+    <h2>3.What are the differences between var, let and const?</h2>
+    <p>
+      In JavaScript, users can declare a variable using 3 keywords that are var,
+      let, and const. var keyword is oldest keyword and let and const are
+      introduced in es6. • var declarations are globally scoped or function
+      scoped while let and const are block scoped. • var variables can be
+      updated and re-declared within its scope; let variables can be updated but
+      not re-declared; const variables can neither be updated nor re-declared. •
+      They are all hoisted to the top of their scope. But while var variables
+      are initialized with undefined, let and const variables are not
+      initialized. • While var and let can be declared without being
+      initialized, const must be initialized during declaration.
+    </p>
+    <h2>4.what is execution context ?</h2>
+    <pre>When the JavaScript engine executes the JavaScript code, it creates execution contexts.
+      Each execution context has two phases: the creation phase and the execution phase.
+      The creation phase:
+      When the JavaScript engine executes a script for the first time, it creates the global execution context.
+      The execution phase :
+      During the execution phase, the JavaScript engine executes the code line by line, assigns the values to variables, and executes the function calls.
+      example : var a=10;
+  console.log(a); </pre>
+  <h2>5.What is meant by first class functions</h2>
+  <pre>In Javascript, functions are first class objects. First-class functions means when functions in that language are treated like any other variable.
+
+    For example, in such a language, a function can be passed as an argument to other functions, can be returned by another function and can be assigned as a value to a variable. 
+    For example, in the below example, handler functions assigned to a listener
+    
+    const handler = () => console.log("This is a click handler function");
+    document.addEventListener("click", handler);</pre>
+    <h2>6.What are closures? Give an example of closure</h2>
+    <pre>A closure is the combination of a function and the lexical environment within which that function was declared. 
+      i.e, It is an inner function that has access to the outer or enclosing function’s variables. The closure has three scope chains. 
+      i. Own scope where variables defined between its curly brackets ii. Outer function’s variables iii. Global variables.
+      function Welcome(name) {
+        var greetingInfo = function (message) {
+          console.log(message + " " + name);
+        };
+        return greetingInfo;
+      }
+      var myFunction = Welcome("John");
+      myFunction("Welcome "); //Output: Welcome John
+      myFunction("Hello Mr."); //output: Hello Mr.John
+      As per the above code, the inner function(i.e, greetingInfo) has access to the variables in the outer function scope(i.e, Welcome) even after the outer function has returned.</pre>
+     <h2>7.Explain call(), apply() and, bind() methods. Give an example of call(), apply(), bind()</h2>
+     <pre>These are just different way of calling or invoking a function.
+      when you are calling a function using any of these then you Document
+      have to define in the function that the first argument will be an object.
+
+      example: let user1 = {
+          name : 'rahul',
+          age : 23,
+          city :'tirupati'
+      }
+      let user2 = {
+          name : 'Govindh',
+          age : 24,
+          city :'chittoor'
+      }
+      function Userdetail(company,designation){
+          console.log(this.name + 'is' + this.age + 'years old',company," ",designation)
+      }
+      Userdetail.call(user1,"google","front end dev")//call:Argument will be passed individually.//
+      Userdetail.apply(user2,"hcl","back end dev")//Apply : Argument will be passed in an array.//
+
+      const newFunction = Userdetail.bind(user1);//Bind: It will return you new function,you can use it anywhere.
+      newFunction("Flipkart","Full stack");</pre>
+    </section>
+  </body>
+</html>
