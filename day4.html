@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><center>day4</center></h1>
+    <h2>1.How many operators do we have in JS ?</h2>
+    <pre>
+There are different types of JavaScript operators:
+
+      Aritmetic Operators
+      Assignment Operators
+      Comparison Operators
+      Logical Operators
+      Conditional Operators
+      Type Operators</pre
+    >
+    <h2>2.What are pure functions?</h2>
+    <pre>
+A Pure function is a function where the return value is only determined by its arguments without any side effects. i.e, If you 
+      call a function with the same arguments 'n' number of times and 'n' number of places in the application then it will always return
+       the same value.
+
+      Let's take an example to see the difference between pure and impure functions,
+      
+      //Impure
+      let numberArray = [];
+      const impureAddNumber = (number) => numberArray.push(number);
+      //Pure
+      const pureAddNumber = (number) => (argNumberArray) =>
+        argNumberArray.concat([number]);
+      
+      //Display the results
+      console.log(impureAddNumber(6)); // returns 1
+      console.log(numberArray); // returns [6]
+      console.log(pureAddNumber(7)(numberArray)); // returns [6, 7]
+      console.log(numberArray); // returns [6]
+      As per the above code snippets, the Push function is impure itself by altering the array and returning a push number index independent 
+      of the parameter value. . Whereas Concat on the other hand takes the array and concatenates it with the other array producing a whole 
+      new array without side effects. Also, the return value is a concatenation of the previous array.
+      
+      Remember that Pure functions are important as they simplify unit testing without any side effects and no need for dependency injection. 
+      They also avoid tight coupling and make it harder to break your application by not having any side effects. These principles are coming 
+      together with Immutability concept of ES6 by giving preference to const over let usage. (or) A Pure Function is a function (a block of 
+      code) that always returns the same result if the same arguments are passed. It does not depend on any state or data change during a 
+      program’s execution. Rather, it only depends on its input arguments.When a same input is passed every time the function will return same
+       output.
+      
+      function calculate(sum){         // 2
+         return (sum+ 0.5);           // 2.5
+      }
+      calculate(2);    //2.5      
+      calculate(5);    //5.5</pre
+    >
+    <h2>3.What is callback hell</h2>
+    <pre>
+Callback Hell is an anti-pattern with multiple nested callbacks which makes code hard to read and debug when dealing with asynchronous
+       logic. The callback hell looks like below,
+
+      async1(function(){
+          async2(function(){
+              async3(function(){
+                  async4(function(){
+                      ....
+                  });
+              });
+          });
+      });</pre
+    >
+    <h2>4.What are promises and why do we need them?</h2>
+    <pre>
+A promise is an object that may produce a single value some time in the future with either a resolved value or a reason that it’s not 
+      resolved(for example, network error). It will be in one of the 3 possible states: fulfilled, rejected, or pending.
+
+      The syntax of Promise creation looks like below,
+      
+      const promise = new Promise(function (resolve, reject) {
+        // promise description
+      });
+      The usage of a promise would be as below,
+      
+      const promise = new Promise(
+        (resolve) => {
+          setTimeout(() => {
+            resolve("I'm a Promise!");
+          }, 5000);
+        },
+        (reject) => {}
+      );
+      
+      promise.then((value) => console.log(value));</pre
+    >
+    <h2>5.What is promise chaining</h2>
+    <pre>
+Promise Chaining: Promise Chaining is a simple concept by which we may initialize another promise inside our .then() method and accordingly
+       we may execute our results.
+       let promise = new Promise((resolve, reject) => {
+        resolve("Hello JavaScript");
+      });
+      promise
+        .then(
+          new Promise((resolve, reject) => {
+            resolve("Hello GeeksforGeeks");
+          }).then((result1) => {
+            console.log(result1);
+          })
+        )
+        .then((result2) => {
+          console.log(result2);
+        });</pre
+    >
+    <h2>6.Give an example of async/await</h2>
+    <pre>
+async function f() {
+
+      let promise = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("done!"), 1000)
+      });
+    
+      let result = await promise; // wait until the promise resolves (*)
+    
+      alert(result); // "done!"
+    }
+    
+    f();</pre
+    >
+    <h2>7.What is the purpose of async/await keywords?</h2>
+    <p>
+      await can be used on its own with JavaScript modules. Note: The purpose of
+      async / await is to simplify the syntax necessary to consume promise-based
+      APIs. The behavior of async / await is similar to combining generators and
+      promises. Async functions always return a promise. To avoid of multiple
+      .then blocks(promise chaining) by using async/await.
+    </p>
+  </body>
+</html>

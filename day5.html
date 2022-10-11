@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><center>Day5</center></h1>
+    <h2>1.What is the for-in loop in JavaScript? Give its syntax</h2>
+    <pre>
+The JavaScript for in statement loops through the properties of an Object:
+for (key in object) {
+  // code block to be executed
+}</pre
+    >
+    <h2>
+      2.Explain Local Scope, Block Scope, Functional Scope and Scope Chain in
+      javascript
+    </h2>
+    <pre>
+Local Scope: When a variable is defined inside a function then it is locally present inside that function only. 
+blockscope: BlockScope: All the variables and Functions accessible inside a scope, so that's why we say let
+            and const are Block Scoped because they are stored in a different memory space reserved for the Block.
+functionscope: Each function creates a new scope. Scope determines the accessibility (visibility) of these variables. 
+              Variables defined inside a function are not accessible (visible) from outside the function.  
+scope chain:The scope chain is how Javascript looks for variables. When looking for variables through the nested scope,
+             the inner scope first looks at its own scope. If the variable is not assigned locally, which is inside the 
+             inner function or block scope, then JavaScript will look at the outer scope of said function or block to 
+             find the variable. If Javascript could not find the variable in any of the outer scopes on the chain, it 
+             will throw a reference error.
+          </pre
+    >
+    <h2>
+      3.What is difference between null and undefined and where to use what?
+    </h2>
+    <pre>
+Below are the main differences between null and undefined, Null::
+
+      It is an assignment value which indicates that variable points to no object.
+      Type of null is object.
+      The null value is a primitive value that represents the null, empty, or non-existent reference.
+      Indicates the absence of a value for a variable.
+      Converted to zero (0) while performing primitive operations.
+      Undefined::
+      
+      It is not an assignment value where a variable has been declared but has not yet been assigned a value.
+      Type of undefined is undefined.
+      The undefined value is a primitive value used when a variable has not been assigned a value.
+      Indicates absence of variable itself.
+      Converted to NaN while performing primitive operations.</pre
+    >
+    <h2>4.what is Symbol?</h2>
+    <p>
+      A value having the data type Symbol can be called a “Symbol value”. In a
+      JavaScript runtime environment, a symbol value is created by calling the
+      global function Symbol(), which dynamically produces an anonymous, unique
+      value. A symbol can be used as an object property. The symbol can be used
+      as unique values, whenever we use enum or string to maintain a unique
+      value we should use Symbol instead. The Symbol can have a description as
+      an optional, but for debugging purposes only.
+    </p>
+    <pre>
+To create a new primitive data type symbol, we use a global function Symbol() and define it with the following syntax:
+      let mySymbol = Symbol();</pre
+    >
+    <h2>5.Write code to explain map and filter in arrays</h2>
+    <p>
+      The filter() method creates an array filled with all array elements that
+      pass a test implemented by the provided function. The filter method is
+      well suited for particular instances where the user must identify certain
+      items in an array that share a common characteristic. For example,
+      consider the following
+    </p>
+    <pre>
+var playersArr = [
+      {name: 'Jason', footedness: 'left', position: 'forward'},
+      {name: 'Blake', footedness: 'right', position: 'defense'},
+      {name: 'Philip', footedness: 'right', position: 'goalie'},
+      {name: 'Logan', footedness: 'left', position: 'defense'},
+      {name: 'Will', footedness: 'right', position: 'forward'}
+  ];var leftFootArr = playersArr.filter(function(player){
+    return player.footedness === 'left';
+});
+console.log(leftFootArr);
+/*This will log: [{name: 'Jason', footedness: 'left', position: 'forward'},
+ {name: 'Logan', footedness: 'left', position: 'defense'}];*/</pre
+    >
+    <p>
+      The map() method creates a new array with the results of calling a
+      function for every array element. The map method allows items in an array
+      to be manipulated to the user’s preference, returning the conclusion of
+      the chosen manipulation in an entirely new array. For example, consider
+      the following array:
+    </p>
+    <pre>
+var agesArr = [25, 36, 49, 64, 81];
+      function root() {
+        var roots = agesArr.map(Math.sqrt);
+        return roots;
+    };
+    root();
+    //This will return: [ 5, 6, 7, 8, 9 ];
+    </pre>
+    <h2>6.Explain passed by value and passed by reference?</h2>
+    <pre>
+example 1: 
+        let a=5;
+        let b=a;
+        b=b+5;
+        console.log(a,b) // result 5 10
+example 2:
+        let obj = { name: "ram",age : 21}
+        let obj2=obj;
+        obj2[age]=25;
+        console.log(obj[age],obj2[age]) // result 25 25
+        example 1 is passbyvalue. where we passed value of 'a'. so value 'a' is not changed.
+        example 2 is passbyreference.where we passed address of object.so, values obj are changed;  
+    </pre>
+    <h2>7.Please explain Self Invoking Function and its code</h2>
+    <pre>
+      Self Invoking Function also known as Immediately Invoked Function Expression.
+      IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. 
+      The signature of it would be as below, or it is a way to execute function immedately as soon as they are created , 
+      this is the way to present the function and variable from polluting the global on=bject is to use IIFE.
+
+      (function () {
+        // logic here
+      })();
+      The primary reason to use an IIFE is to obtain data privacy because any variables declared within the IIFE cannot be 
+      accessed by the outside world. i.e, If you try to access variables with IIFE then it throws an error as below,
+      
+      (function () {
+        var message = "IIFE";
+          console.log(message);
+      })();
+      console.log(message); //Error: message is not defined</pre
+    >
+  </body>
+</html>
