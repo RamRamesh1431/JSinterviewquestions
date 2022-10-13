@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><center>Day6</center></h1>
+    <h2>
+      1.Create a button , on click of which new Heading tag h1 should be added
+      with text as "MERN stack" on the screen above button
+    </h2>
+    <div class="heading"></div>
+    <button onclick="m()">add H1</button>
+    <h2>2.Write code to get 1st H1 element from a webpage using DOM</h2>
+    <pre>
+      let h1= documet.getElementbyTagName("h1")[0]
+      console.log(h1);
+    </pre>
+    <h2>
+      3.Write code to implement timer clock using JS -- display HH:MM:SS -- the
+      time should keep updating every second
+    </h2>
+    <div class="time">
+      <span class="hrs"></span>:<span class="mins"></span>:<span
+        class="secs"
+      ></span>
+    </div>
+    <h2>
+      4.Create an HTML page having content as Hello world and a button named
+      Replace Text. When user will click on this button page content should be
+      changed to "Welcome to Elevation academy"
+    </h2>
+    <h1 class="heading4">Hello World</h1>
+    <button onclick="change()">add H1</button>
+    <h2>
+      5.Create an HTML page having content as Hello world and a button named
+      "Hide Text." When user will click on this button hide the "Hello World"
+      text
+    </h2>
+    <h1 class="heading5">Hello World</h1>
+    <button onclick="hide()">hide H1</button>
+    <h2>6.Given an array of 0's and 1's find out number of 0's</h2>
+    <pre>
+      let arr=[0,1,0,0,1,1,0];
+      let count=0;
+      for(let i in arr){
+        if(arr[i]===0)
+        {count++}
+      }
+      console.log(count);
+    </pre>
+    <h2>7.Given an array find out total no. of odd and even nos.</h2>
+    <pre>
+      let arr = [ 2, 3, 4, 5, 6 ]
+      let even_count = 0;
+      let odd_count = 0;
+      for (let i = 0; i < arr.length; i++) {
+         
+        if (arr[i]%2 == 0)
+            even_count++;
+        else
+            odd_count++;
+    }
+    </pre>
+    <h2>8.Given a string find out number of vowels</h2>
+    <pre>
+      var string="ramesh"
+      var Vowels = 'aAeEiIoOuU';
+      var vowelsCount = 0;
+      for(var i = 0; i < string.length ; i++) {
+         if (Vowels.indexOf(string[i]) !== -1) {
+            vowelsCount += 1;
+        }
+      }
+      console.log(vowelsCount);
+    </pre>
+    <h2>
+      9.Write a code to create two objects with 2 properties each, one will be
+      string and other will be an array. Create a function to check if all the
+      elements of the arrays in both the objects are same
+    </h2>
+    <pre>
+      let abc={
+        name= 'ramesh';
+        arr1= [2,3,4,5,6];
+      }
+      let bce={
+        name= "nikhil";
+        arr2= [2,3,4,5,6];
+      }
+      if(bce.arr2.length=abc.arr1.length){
+        for(let i=0; i< bce.arr2.length; i++)
+        {
+          if(bce.arr2[i]!=abc.arr1[i])
+          { 
+            console.log("arrays not same");
+            break;
+          }
+        }
+      }
+      else{
+        console.log("arrays not same");
+      }
+      if(i==bce.arr2.length){
+        console.log("arrays are same");
+      }
+    </pre>
+    <script src="day6.js"></script>
+  </body>
+</html>
